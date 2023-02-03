@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import react, { useState } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import Image from 'next/image'
 import { motion } from 'framer-motion';
@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <>
             <nav className="app__navbar">
-                <div className="flex content-center">
+                <div className="flex content-center cursor-pointer">
                     <Image src={header_logo} alt="logo" />
                     <p className='text-2xl self-center ml-2'>Avant Garde</p>
                 </div>

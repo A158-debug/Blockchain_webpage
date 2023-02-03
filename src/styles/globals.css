@@ -207,7 +207,7 @@ textarea {
   right: 0;
   z-index: 5;
   padding: 1rem;
-  width: 40%;
+  width: 60%;
   height: 100vh;
   display: flex;
   justify-content: flex-end;
@@ -265,5 +265,9 @@ textarea {
 @media screen and (max-width: 900px) {
   .app__navbar-links {
     display: none;
+  }
+  .app__navbar-menu div {
+    width: 90%;
+    
   }
 }

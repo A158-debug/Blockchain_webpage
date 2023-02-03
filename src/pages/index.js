@@ -134,7 +134,10 @@ export default function Home() {
                 <div className="flex flex-wrap justify-center content-center gap-5 p-5 pb-0 w-10/12 md:w-8/12 mx-auto">
                     {service_cards.map((e) => {
                         return (
-                            <div class="rounded-xl p-4 w-60 h-48 cursor-pointer overflow-hidden card-wrapper relative" style={{ background: '#3c4150' }} key={e.id}>
+                            <motion.div
+                            whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+                            transition={{ duration: 0.5 }}
+                            class="rounded-xl p-4 w-60 h-48 cursor-pointer overflow-hidden card-wrapper relative" style={{ background: '#3c4150' }} key={e.id}>
                                 <div className="card-top flex flex-col justify-center content-center">
                                     <Image src={e.img} alt="" className='logo self-center justify-self-center m-1 ' />
                                     <p className='p-2 text-center'>Smart contract <br /> development</p>
@@ -142,7 +145,7 @@ export default function Home() {
                                 <div className='card-bottom'>
                                     <p>We provide tailor made solutions from scratch. Building, deployment and analytics. is a design-led and domain agnostic team with deep expertise working</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     })}
                 </div>

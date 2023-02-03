@@ -41,7 +41,7 @@ const contact = () => {
 
             <div
                 className="p-2" style={{ background: '#151c31' }}>
-                <div className="flex content-center ml-20">
+                <div className="flex content-center ml-20 cursor-pointer">
                     <Image src={header_logo} alt="footer_logo" className='inline' />
                     <p className="text-lg self-center ml-2">Avant Garde</p>
                 </div>
