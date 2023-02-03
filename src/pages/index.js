@@ -1,18 +1,17 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react';
-import header_logo from '../img/header_logo.png'
 import setting_icon from '../img/setting_icon.png'
 import team1 from '../img/team/team1.png'
 import team2 from '../img/team/team2.png'
 import Slider from "react-slick";
+
 import client01 from '../img/clients/client01.png'
 import client02 from '../img/clients/client02.png'
 import client03 from '../img/clients/client03.png'
 import client04 from '../img/clients/client04.png'
 import testimonial1 from '../img/testimonials/testimonial1.png'
 import Maskgroup from '../img/Maskgroup.png'
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
 const service_cards = [
@@ -72,7 +71,6 @@ export default function Home() {
         }
     ]
 };
-const [toggle, setToggle] = useState(false);
 
   return (
     <>
@@ -84,43 +82,7 @@ const [toggle, setToggle] = useState(false);
       </Head>
       <main >
       <div>
-            <div>
-                <nav className="app__navbar">
-                    <div className="flex content-center">
-                        <Image src={header_logo} alt="logo" />
-                        <p className='text-2xl self-center ml-2'>Avant Garde</p>
-                    </div>
-
-                    <ul className="app__navbar-links list-none flex justify-center content-center">
-                        {['Testimonials', 'Projects', 'Contact Us'].map((item) => (
-                            <li className="app__flex p-text flex flex-col cursor-pointer mx-4" key={`link-${item}`}>
-                                <div />
-                                <a href={`#${item}`} className="" style={{ color: 'white' }}>{item}</a>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="app__navbar-menu">
-                        <HiMenuAlt4 onClick={() => setToggle(true)} />
-                        {toggle && (
-                            <motion.div
-                                whileInView={{ x: [300, 0] }}
-                                transition={{ duration: 0.95, ease: 'easeOut' }}>
-                                <HiX onClick={() => setToggle(false)} />
-                                <ul>
-                                    {['Testimonials', 'Projects', 'About Us'].map((item) => (
-                                        <li key={item}>
-                                            <a href={`#${item}`} onClick={() => setToggle(false)}>
-                                                {item}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </motion.div>
-                        )}
-                    </div>
-                </nav>
-            </div>
+            
             <div className="container-lg mx-auto p-5 header__background">
                 <div className="flex flex-col md:flex-row mt-28 ">
                     <div className="basis-full md:basis-8/12 flex flex-col justify-center content-center h-96 ">
@@ -172,9 +134,14 @@ const [toggle, setToggle] = useState(false);
                 <div className="flex flex-wrap justify-center content-center gap-5 p-5 pb-0 w-10/12 md:w-8/12 mx-auto">
                     {service_cards.map((e) => {
                         return (
-                            <div class=" flex flex-col justify-center items-center rounded-xl p-4 w-60  cursor-pointer" style={{ background: '#3c4150' }} key={e.id}>
-                                <Image src={e.img} alt="" className='logo self-center m-1 ' />
-                                <p className='p-2 text-center'>Smart contract <br /> development</p>
+                            <div class="rounded-xl p-4 w-60 h-48 cursor-pointer overflow-hidden card-wrapper relative" style={{ background: '#3c4150' }} key={e.id}>
+                                <div className="card-top flex flex-col justify-center content-center">
+                                    <Image src={e.img} alt="" className='logo self-center justify-self-center m-1 ' />
+                                    <p className='p-2 text-center'>Smart contract <br /> development</p>
+                                </div>
+                                <div className='card-bottom'>
+                                    <p>We provide tailor made solutions from scratch. Building, deployment and analytics. is a design-led and domain agnostic team with deep expertise working</p>
+                                </div>
                             </div>
                         )
                     })}
@@ -201,8 +168,7 @@ const [toggle, setToggle] = useState(false);
                     })}
                 </div>
             </motion.div>
-            <div
-                
+            <div        
                 className="conatiner mx-auto p-5 flex flex-col justify-around header__background1">
                 <h1 className="text-center text-4xl md:text-6xl font-semibold my-2">OUR CLIENTS</h1>
                 <div className="px-5 my-20">
@@ -255,49 +221,6 @@ const [toggle, setToggle] = useState(false);
                         </div>
                         <div className='w-32 h-30 flex justify-start content-center mx-auto ml-2 relative'><Image src={testimonial1} alt="" className='logo self-end mt-10 absolute top-10 left-0' /></div>
                     </motion.div>
-                </div>
-            </div>
-            <motion.div
-            id="Contact Us"
-                whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
-                transition={{ duration: 0.5 }}
-                className="container h-screen mx-auto p-5 flex flex-col contact__us mt-28  header__background" >
-                <h1 className="text-center text-4xl md:text-6xl font-semibold my-2 " style={{ color: 'color: #EDEEEF' }}>CONTACT US</h1>
-                <div className="flex flex-col md:flex-row h-screen">
-                    <div className="basis-1/2 flex justify-center">
-                        <div className="self-center">
-                            <p className=" text-xl leading-7 md:leading-normal md:text-5xl"> Our teams are <br /> ready to help!</p>
-                            <p className='mt-4 text-xl' style={{ color: 'rgba(255, 255, 255, 0.4)' }}>Get contacted by the team within <br /> 24 hours</p>
-                        </div>
-                    </div>
-                    <div className="basis-1/2 p-5 text_fields">
-                        <div className="flex flex-col justify-around content-center h-full p-5">
-                            <div className='relative'>
-                                <div className="absolute bottom-9 md:bottom-8"><p className='inline-block py-1 px-3'>Name</p></div>
-                                <input type="text" className='w-9/12 p-2' />
-                            </div>
-                            <div className='relative my-10 md:my-0'>
-                                <div className="absolute bottom-9 md:bottom-8"><p className='inline-block py-1 px-3'>Email</p></div>
-                                <input type="email" className='w-9/12 p-2' />
-                            </div>
-                            <div className='relative'>
-                                <div className="absolute bottom-28 md:bottom-24"><p className='inline-block py-1 px-3'>Your message</p></div>
-                                <textarea id="message" rows="4" className='w-9/12 p-2'></textarea>
-                            </div>
-                            <div className=''><span className='px-5 py-2 rounded-xl inline-block cursor-pointer border bg-gray-800 hover:bg-slate-700'>submit</span></div>
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
-            <div
-                
-                className="p-2" style={{ background: '#151c31' }}>
-                <div className="flex content-center ml-20">
-                    <Image src={header_logo} alt="footer_logo" className='inline' />
-                    <p className="text-lg self-center ml-2">Avant Garde</p>
-                </div>
-                <div>
-                    <p className="text-sm ml-20" style={{ color: 'rgba(255, 255, 255, 0.4)' }}>Copyright © 2023 LAYERUP. All rights reserved.</p>
                 </div>
             </div>
         </div>
